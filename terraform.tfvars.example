@@ -1,0 +1,22 @@
+aws_region                = "us-east-1"
+cluster_identifier        = "my-rds-cluster"
+database_name             = "armonddatabase"
+master_username           = "admin"
+master_password           = "armond-1" # replace with a secure password or use TF_VAR_master_password
+engine                    = "aurora-mysql"
+engine_version            = "8.0.mysql_aurora.3.04.0"
+backup_retention_period   = 7
+preferred_backup_window   = "03:00-04:00"
+preferred_maintenance_window = "sun:04:00-sun:05:00"
+min_capacity              = 1
+max_capacity              = 2
+reader_instance_count     = 2
+vpc_id                    = "vpc-04b6fbf7660cc0e3b" # replace with your VPC ID
+subnet_ids                = ["subnet-0ae0c5b4bcfb6db6b", "subnet-0ac6ff55cdf7ec7d8"]
+subnet_group_name         = "my-armond-subig"
+allowed_cidr_blocks       = ["0.0.0.0/0"] # tighten for production
+tags = {
+  Environment = "dev"
+  Project     = "rds-cluster"
+}
+
